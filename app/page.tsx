@@ -592,6 +592,8 @@ export default function CorrentesTourism() {
   const [selectedPlace, setSelectedPlace] = useState<number>(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [swipeStartX, setSwipeStartX] = useState(0)
+  const [swipeEndX, setSwipeEndX] = useState(0)
 
   // Auto-scroll para las imágenes
   //useEffect(() => {
@@ -643,6 +645,39 @@ export default function CorrentesTourism() {
     if (topic && topic.places[selectedPlace]) {
       setCurrentImageIndex((prev) => (prev === 0 ? topic.places[selectedPlace].images.length - 1 : prev - 1))
     }
+  }
+
+  // Funciones para el swipe
+  const handleSwipeStart = (e: React.TouchEvent | React.MouseEvent) => {
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
+    setSwipeStartX(clientX)
+  }
+
+  const handleSwipeMove = (e: React.TouchEvent | React.MouseEvent) => {
+    if (swipeStartX === 0) return
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
+    setSwipeEndX(clientX)
+  }
+
+  const handleSwipeEnd = () => {
+    if (swipeStartX === 0 || swipeEndX === 0) return
+    
+    const swipeThreshold = 50
+    const swipeDistance = swipeEndX - swipeStartX
+    
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0) {
+        // Swipe hacia la derecha - imagen anterior
+        prevImage()
+      } else {
+        // Swipe hacia la izquierda - imagen siguiente
+        nextImage()
+      }
+    }
+    
+    // Resetear valores
+    setSwipeStartX(0)
+    setSwipeEndX(0)
   }
 
   const openMaps = (address: string) => {
@@ -768,11 +803,21 @@ export default function CorrentesTourism() {
 
                     {/* Image Carousel */}
                     <div className="relative">
-                      <div className="relative h-86 md:h-100 rounded-lg overflow-hidden">
+                      <div 
+                        className="relative h-86 md:h-100 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing"
+                        onTouchStart={handleSwipeStart}
+                        onTouchMove={handleSwipeMove}
+                        onTouchEnd={handleSwipeEnd}
+                        onMouseDown={handleSwipeStart}
+                        onMouseMove={handleSwipeMove}
+                        onMouseUp={handleSwipeEnd}
+                        onMouseLeave={handleSwipeEnd}
+                      >
                         <img
                           src={currentPlace.images[currentImageIndex] || "/placeholder.svg"}
                           alt={`${currentPlace.name} image ${currentImageIndex + 1}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover select-none"
+                          draggable={false}
                         />
                         <Button
                           variant="ghost"
@@ -801,6 +846,11 @@ export default function CorrentesTourism() {
                             onClick={() => setCurrentImageIndex(index)}
                           />
                         ))}
+                      </div>
+                      <div className="text-center mt-2">
+                        <p className="text-sm text-gray-500">
+                          {currentImageIndex + 1} de {currentPlace.images.length}
+                        </p>
                       </div>
                     </div>
 
