@@ -33,7 +33,7 @@ const topics = [
         website: null,
         inscriptions: null,
         address: "Fray José de la Quintana 999",
-        address2: "Av. 3 de Abril 1234", // Agregar dirección 2 
+        address2: "Belgrano 260", 
       },
       {
         name: "Valirio",
@@ -99,7 +99,7 @@ const topics = [
         website: null,
         inscriptions: null,
         address: "Salta 498, Corrientes",
-        address2: "RN12 1034, Corrientes", // Agregar dirección 2 
+        address2: "La Felipa verde", 
       },
       {
         name: "Tajy Roof Top",
@@ -238,7 +238,7 @@ const topics = [
         menu: null,
         website: null,
         inscriptions: null,
-        address: "Fray José de la Quintana 971, Corrientes",
+        address: "Museo de Ciencias Naturales 'Amado Bonpland'",
         address2: null,
         }
     ],
@@ -761,7 +761,7 @@ export default function CorrentesTourism() {
                         className="w-16 h-16 rounded-full object-cover"
                       />*/}
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">{currentPlace.name}</h3>
+                        <h3 className="text-xl font-bold text-gray-800 h-8">{currentPlace.name}</h3>
                         <p className="text-gray-600">{currentPlace.description}</p>
                       </div>
                     </div>
@@ -950,7 +950,7 @@ export default function CorrentesTourism() {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm opacity-80">© 2024 Qué hacer en Corrientes. Todos los derechos reservados.</p>
+          <p className="text-sm opacity-80">© 2025 Qué hacer en Corrientes. Todos los derechos reservados.</p>
           <p className="text-xs opacity-60 mt-2">Desarrollado con ❤️ para promover el turismo en Corrientes</p>
         </div>
       </footer>
