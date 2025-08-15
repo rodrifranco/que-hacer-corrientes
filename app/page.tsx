@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronUp, MapPin, Instagram, Facebook, MessageCircle, X, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronUp, MapPin, Instagram, Facebook, MessageCircle, X, ChevronLeft, ChevronRight, Utensils, Globe, CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
@@ -10,25 +10,29 @@ import { Card } from "@/components/ui/card"
 const topics = [
   {
     id: "rico-sin-tacc",
-    title: "Rico y sin tacc",
+    title: "Café, comida y compañia",
     color: "bg-orange-500",
     places: [
       {
         name: "Yoana Chipacitos",
-        logo: "/placeholder.svg?height=60&width=60",
+        logo: "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/305631931_391080759888189_3149520148533478838_n.png?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG3mDYNrf1mHGRe5JGuaEaJO5sJ1lnxRmU7mwnWWfFGZTF7zb599KxKpjUA1Zc6p8LBJdVth_m2KhK3lIQ8xazu&_nc_ohc=DF6mYN0ag3UQ7kNvwEjDmqg&_nc_oc=Adlqdz4Wek9yZx-iOiH5QuHoIrb-RCfYVC8YBYVUD26QS9bouptfxO8kaGuS2i_KZDs&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=F0DFqpIPEBAVsGb0xTNfkw&oh=00_AfWUaxP5_ayV2BDE-Q_MFNCqstfXH0gj1lDVhdxgfmTB4g&oe=68A1A457",
         description:
           "Local especializado en productos sin TACC, se destaca por su sabor auténtico correntino y su especialidad en chipá y repostería local, acompañada de jugos y licuados. ",
         images: [
           "https://scontent.fpra1-1.fna.fbcdn.net/v/t1.6435-9/70120602_1382845865196175_5200399934469177344_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0b6b33&_nc_eui2=AeE4kPTfHTszsfD1ZIni9GGVvKg7OBqwgSu8qDs4GrCBKx7ZNB40IlaGReDUCQXLLozdjIMe6vEYPrsmO9CQTJgQ&_nc_ohc=NZoSUoJC9XsQ7kNvwEVo-Ti&_nc_oc=Adk34l8sfwNlYmq6sMUHqmGVEMyIWONJVaMD2JYiwJLASz8n_IuMEdo0H7W_7pkT448&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=Bi8nqLJqHArtw7iKe-uesQ&oh=00_AfVka0l_x_BqtlsoG9KaImwWArw0BnkiWv10nbqq8vZdqA&oe=68C351DE",
           "https://scontent.fpra1-1.fna.fbcdn.net/v/t1.6435-9/73157124_1427201544093940_1981068676190699520_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=0b6b33&_nc_eui2=AeEoPPccPACXeoHdHYSdN0xy3rH6hGn4x2XesfqEafjHZUNFlWVO-VdWxMx5TSYq3FIsQsthaz9MWabj5N6foP2p&_nc_ohc=UN91p_8KgiMQ7kNvwGKS9OG&_nc_oc=AdmNFXKz4JjhCmfCZG_zWrB_CwLyc62vtlWSXDVAJkJsDenZPnfQg2yYupiKkZ-GXbg&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=HbNPmEsrVtGLA55iuJ9iNA&oh=00_AfWg0ztGbFrtG2chqQ5C97DSmyGpO-CRhnl09pS7k7z-ZQ&oe=68C34239",
-          "/placeholder.svg?height=300&width=400",
+          "https://scontent.fres6-1.fna.fbcdn.net/v/t1.6435-9/70536796_1386519641495464_336694817184546816_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=uSgpy469kbsQ7kNvwFjJv1j&_nc_oc=AdlH-INCFQkD7uTRrKNZCFbJeB2UD_3rhv-CjU3p0s4K0samFYXGrKe-NLN9s__LJuw&_nc_zt=23&_nc_ht=scontent.fres6-1.fna&_nc_gid=TXw9IVGwZNGoQ5nAHRis4A&oh=00_AfVdX_YZorOpiQ_LS-BHAcL2v4AQBy73q-ZPuCFUhm1MFg&oe=68C60A46",
         ],
         social: {
           instagram: "https://instagram.com/yoana_chipacitos",
           facebook: "https://facebook.com/yoana.chipacitos",
           whatsapp: "https://wa.me/543794724968",
+          whatsapp2: null,
         },
-        address: "Quintana 999, Corrientes",
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "Fray José de la Quintana 999",
         address2: "Av. 3 de Abril 1234", // Agregar dirección 2 
       },
       {
@@ -45,8 +49,13 @@ const topics = [
           instagram: "https://instagram.com/valirio.restobar",
           facebook: "https://facebook.com/ValyrioCafe",
           whatsapp: "https://wa.me/+5493794568686",
+          whatsapp2: null,
         },
-        address: "San Lorenzo 1997, Corrientes",
+        menu: "https://menu.fu.do/valyriocafe?fbclid=PAQ0xDSwMLiLtleHRuA2FlbQIxMAABp9ttrKIiLvaBa2ah2dFvSOdAawFMYZPMabNhbb67Io268Ct6PR48mimRWMa__aem_WBUDoSRO0J39hMIKECE14Q",
+        website: null,
+        inscriptions: null,
+        address: "San Lorenzo 1097",
+        address2: null,
       },
       {
         name: "Lo de Pepe",
@@ -64,6 +73,9 @@ const topics = [
           whatsapp: "https://wa.me/+5493794296947", // Sucursal san juan 
           whatsapp2: "https://wa.me/+5493795574304", // Sucursal Rioja
         },
+        menu: "https://linktr.ee/lodepepecafe?fbclid=PAQ0xDSwMLiBVleHRuA2FlbQIxMQABpyBHy5h7xmFlSL6umq3ubc-DmtRiKB75EcvqAVwUxd6BgdEXtoUMTWhh8auv_aem_Fo0iDEppo3Sz1OGXgRr8Wg",
+        website: null,
+        inscriptions: null,
         address: "San Juan 1037, Corrientes",
         address2: "Rioja 625, Corrientes", //agregar
       },
@@ -81,7 +93,11 @@ const topics = [
           instagram: "https://instagram.com/lafelipa.meriendas",
           facebook: "https://facebook.com/lafelipa.meriendas",
           whatsapp: "https://wa.me/+5493794525086",
+          whatsapp2: null,
         },
+        menu: "https://menu.fu.do/lafelipa?fbclid=PAQ0xDSwMLiGxleHRuA2FlbQIxMAABp9lUt0Po54hPQ-UiXnqyNkEg73s1j-Ki0WiN8hmLDKabthi5nq3vDvUkRpOz_aem_cFV00fmYGbueBaKkge3l7Q",
+        website: null,
+        inscriptions: null,
         address: "Salta 498, Corrientes",
         address2: "RN12 1034, Corrientes", // Agregar dirección 2 
       },
@@ -98,11 +114,14 @@ const topics = [
         social: {
           instagram: "https://www.instagram.com/tajyrooftop/",
           facebook: "https://www.facebook.com/people/TAJY-Rooftop/100086849416923/",
-          whatsapp: "https://wa.me/+5493794296947", // Sucursal san juan 
+          whatsapp: "https://wa.me/0", // SACAR
           whatsapp2: "https://wa.me/+5493795574304", // Sucursal Rioja
         },
-        address: "San Juan 1037, Corrientes",
-        address2: "Rioja 625, Corrientes", //agregar
+        menu: "https://menu.fu.do/tajyrooftopbar/qr-menu?fbclid=PAQ0xDSwMLiPNleHRuA2FlbQIxMQABp2aI5ZrzfJ-lFmxWayyZLCxitv3spoIUeHxUM8-UQiFXdW-8HFYOeHW_LRA6_aem_d0uzCQrxWlxh-0xcEdQx2A",
+        website: null,
+        inscriptions: null,
+        address: "Hipólito Yrigoyen 1470",
+        address2: null,
       },
 
     ],
@@ -125,9 +144,14 @@ const topics = [
         social: {
           instagram: "https://instagram.com/museovidalctes",
           facebook: "https://facebook.com/museovidalcorrientes",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "San Juan 634, Corrientes",
+        address2: null,
       },
       {
         name: "Centro de Interpretacion Ibera",
@@ -142,9 +166,14 @@ const topics = [
         social: {
           instagram: "https://instagram.com/casa.ibera",
           facebook: "https://facebook.com/CasaIbera",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Carlos Pellegrini 501, Corrientes",
+        address2: null,
       },
       {
         name: "Museo Casa Martinez",
@@ -159,10 +188,59 @@ const topics = [
         social: {
           instagram: "https://instagram.com/museocasamartinez",
           facebook: "https://www.facebook.com/profile.php?id=100093797866794 ",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Fray José de la Quintana 971, Corrientes",
-      }
+        address2: null,
+      },
+      {
+          name: "Centro cultural Sanmartiniano",
+          logo: "/placeholder.svg?height=60&width=60",
+          description:
+            "El Centro Cultural Sanmartiniano, ubicado en 25 de Mayo 1406, Corrientes, es un espacio renovado y dedicado a difundir la vida y el legado del General José de San Martín. Desde su inauguración oficial el 15 de julio de 2025, ofrece una experiencia museográfica inmersiva distribuida en cuatro salas temáticas: infancia, formación militar en España, el Combate de San Lorenzo y el exilio en Francia. Exhibe una réplica exacta del sable del Libertador y resguarda documentos originales firmados por San Martín, algunos ya disponibles y otros próximos a exhibirse. Además, el centro ofrece visitas guiadas, actividades didácticas para alumnos y eventos ocasionales con fuerte enfoque educativo y cultural.",
+          images: [
+            "https://scontent.fcnq4-1.fna.fbcdn.net/v/t51.75761-15/485269265_17927552253034217_1058348805688948831_n.jpg?stp=dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeECVIHSSLMAdOKeHG2oJMq9TDwCYDSdc2JMPAJgNJ1zYpm7YnhFyBmXi_e3xGnf_4Jf5RtkIwzs8u3spVKT43tx&_nc_ohc=BRvqMNxyU4UQ7kNvwEiXx4l&_nc_oc=AdlSBJfP_8P6_hFyFAbHrTUG0CrztSOnxs3xcmK1okR_2rzH7VKStuvO4ZtCABXrkcs&_nc_zt=23&_nc_ht=scontent.fcnq4-1.fna&_nc_gid=IC_CfgLiqD67Ssa7j0SvXg&oh=00_AfVk8ZN1_heXWbl-uqs_HgfYnr14lXW-WMbfeE4XvEjFSQ&oe=68A51B9D",
+            "https://corrientesaldia.info/wp-content/uploads/sites/47/2025/08/imagen-101771-800-768x512.jpg",
+            "https://scontent.fcnq4-1.fna.fbcdn.net/v/t39.30808-6/530676372_1311268621007565_5334994172040073909_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFFbN_yIjc1OmaV758lDs65Z_TjTVQMvG1n9ONNVAy8baZLqALpiGQVSbpyTye-ULuLlZXGQ3aWDHDtfY2kQUOV&_nc_ohc=aRxvAiKHLdQQ7kNvwGoBusO&_nc_oc=Adnk8Dfzgp_oTReXBEeWV_75MJPYXXYP3oubkAB-xnM9IjYKT2MrrLp8FIowo5MOok4&_nc_zt=23&_nc_ht=scontent.fcnq4-1.fna&_nc_gid=m15uLm4KSui8nzZZRIpk-w&oh=00_AfWvzMcZJyT9_BGAhOdNq7VeB4uEQQ7ed1tjFtTwR_D2tw&oe=68A5387D",
+          ],
+                  social: {
+          instagram: "https://www.instagram.com/sanmartinianoctes/ ",
+          facebook: "https://www.facebook.com",
+          whatsapp: "https://api.whatsapp.com/send/?phone=5493794155495&text&type=phone_number&app_absent=0",
+          whatsapp2: null,
+        },
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "25 de mayo 1406",
+        address2: null,
+        },
+        {
+          name: "Museo de Ciencias Naturales Amado Bonplad",
+          logo: "/placeholder.svg?height=60&width=60",
+          description:
+            "El Museo de Ciencias Naturales Dr. Amado Bonpland, joya histórica de Corrientes desde 1855, invita a descubrir la increíble biodiversidad provincial a través de fascinantes colecciones de aves, mamíferos, reptiles, fósiles y piezas geológicas. Entre sus propuestas, se destacan muestras permanentes y temporarias, charlas interactivas y visitas guiadas que acercan la ciencia al público. De forma especial, organiza emocionantes safaris urbanos para avistar aves, fauna y flora en plena ciudad. Su renovado sector de paleontología —desarrollado junto al CECOAL y la UNNE— exhibe imponentes fósiles de megafauna, abriendo una ventana al pasado y convirtiendo cada visita en una experiencia única.",
+          images: [
+            "https://culturacorrientes.com/wp-content/uploads/2024/10/Museo-de-Ciencias-Naturales-Amado-Bonpland-1-1-768x432.jpg",
+            "https://www.diarioellibertador.com.ar/wp-content/uploads/2024/10/08-foto-81-Luis-Gurdiel.jpg",
+            "https://culturacorrientes.com/wp-content/uploads/2024/10/DSC_0046-Editar-1.jpg",
+          ],
+                  social: {
+          instagram: "https://instagram.com/museocasamartinez",
+          facebook: "https://www.facebook.com/profile.php?id=100093797866794 ",
+          whatsapp: null,
+          whatsapp2: null,
+        },
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "Fray José de la Quintana 971, Corrientes",
+        address2: null,
+        }
     ],
   },
   {
@@ -183,9 +261,14 @@ const topics = [
         social: {
           instagram: "https://instagram.com/teatrooficialjuandevera",
           facebook: "https://facebook.com/TeatroOficialJuandeVera",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "San Juan 637, Corrientes",
+        address2: null,
       },
         {
           name: "Espacio Marinio",
@@ -197,12 +280,17 @@ const topics = [
             "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/474749651_600829339330274_1333397889886261995_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFmHsqRJo2shas3VBoOYgnn_cJVROg3HG39wlVE6DccbYqAjtkSPxyK3jPs8R1dVi_9f72q53XO9pZLxfwKEA7x&_nc_ohc=vRVsY8cg1rgQ7kNvwHX-t2t&_nc_oc=Adk5-OGSas27H7dtzV_YoVXI8cY4xITBbnWqxzxINzQC-hKelcgfKiVEwof3RivpAiU&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=Nkw65PIfaTmoUZKZ3l2xzQ&oh=00_AfUeks_mO7PFYxnMF6x-uiaKAJ9w8jlx_PqRnge3AnfZAQ&oe=68A1AA92",
             "https://pxcdn.ellitoral.com.ar/litoral/012023/1673353864820.webp?cw=1200&ch=675&extw=jpg",
           ],
-          social: {
-            instagram: "https://instagram.com/espacio_marinio",
-            facebook: "https://facebook.com/espaciomarinio",
-            whatsapp: "https://wa.me/0",
-          },
-          address: "Santa Fé 847, Corrientes",
+                  social: {
+          instagram: "https://instagram.com/espacio_marinio",
+          facebook: "https://facebook.com/espaciomarinio",
+          whatsapp: null,
+          whatsapp2: null,
+        },
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "Santa Fé 847, Corrientes",
+        address2: null,
         },
         {
         name: "Flotantes las Siete Corrientes",
@@ -214,13 +302,40 @@ const topics = [
             "https://scontent.fpra1-1.fna.fbcdn.net/v/t1.6435-9/121653363_789442341881577_1280600406267768428_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFxv_tz8scR4_W6RfFcehgToziij3q8QFmjOKKPerxAWc6Do3kpFzSFetUFCJ0uFjGM3vjfvlT98PruUlJ3QNvm&_nc_ohc=Zs1UEOaBtpsQ7kNvwEGuF4A&_nc_oc=AdkTQIObKFR9OFBgmFgChrb6KcMOCUaZQJfYYNJrlIQIlrRY7Hl-vIbcebh0ZX8w3Hs&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=pPQNs1WnMvkdNEPPiHrhrw&oh=00_AfXPw3vCSQAAAb4rWQ8OXZrXN_wkw8c4vjkiQPD2evYslQ&oe=68C32AD4",
             "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/519487440_9969050049872054_8640226964062230345_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE1bWOMUQYSOxCF2pZ9XuxIr6M3K3O61eKvozcrc7rV4g8WtchiN5WiAEhCT9eXRoH5duY493ivc6K5HcuQYmWW&_nc_ohc=cpdVJVR6dL4Q7kNvwGlflx5&_nc_oc=AdnXnVpbPSG9KizyrEW2Zi1-noIporYVEJV1GXWDwxphUZlu0vGQm7-_i4stgHqYT8o&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=WarIgKyUwB68p5FhpFb-hg&oh=00_AfVezNA9RZiBSIq26B6QCkVqXHxktOIsPMTmG8AufIPwTQ&oe=68A17F59",
           ],
-          social: {
-            instagram: "https://instagram.com/flotantesietecorrientes",
-            facebook: "https://facebook.com/FlotanteSieteCorrientes",
-            whatsapp: "https://wa.me/543794556098",
-          },
-          address: "Rioja y Av.Costanera, Corrientes",
-        }
+                  social: {
+          instagram: "https://instagram.com/flotantesietecorrientes",
+          facebook: "https://facebook.com/FlotanteSieteCorrientes",
+          whatsapp: null,
+          whatsapp2: null,
+        },
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "Rioja y Av.Costanera, Corrientes",
+        address2: null,
+        },
+        {
+          name: "CCU",
+            logo: "/placeholder.svg?height=60&width=60",
+            description:
+              "El Centro Cultural Universitario de Corrientes, corazón artístico de la UNNE, invita a vivir experiencias únicas en su histórica sede. Entre noches de milonga que llenan de tango el salón, obras de teatro que emocionan, ciclos de cine para todos los gustos y exposiciones que renuevan su encanto cada temporada, este espacio también ofrece cursos y talleres en diversas disciplinas, así como ferias eventuales, encuentros literarios y muchas otras propuestas que lo convierten en un punto de encuentro vibrante donde la cultura late a cada paso.",
+            images: [
+              "https://www.diarioepoca.com/content/bucket/5/1416755w600h450c.jpg.webp",
+              "https://scontent.fcnq4-1.fna.fbcdn.net/v/t39.30808-6/486712790_1087147030118386_5473656447171935204_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG5zCVAcE3lJ5ruGGpFyoL6DxYrfjd5rP4PFit-N3ms_iJeCqpyCK7jt8NcYIXzZwGXDvRaWSnMic2nGX8EPD91&_nc_ohc=vo3-WnvpWZYQ7kNvwFiMmNt&_nc_oc=AdkAqdrVZZNEUQTR_BOdE8r2ljT7ibvyZ0zmjxbKIyXO36rpG8-8bfAVJ7ovpSeS2xk&_nc_zt=23&_nc_ht=scontent.fcnq4-1.fna&_nc_gid=p3UTwKetYzYfb5ahSASqtw&oh=00_AfW9UlJK6HbgN3gsiPZqAUVLI018CtiqYoM3WtXlOhC6hA&oe=68A53D97",
+              "https://www.unne.edu.ar/extension/assets/img/ccu/event/4209ed03f9d01d5ff5c911a2857dbdd7/1080_22545433c3751e42890ba5324d2ba932.jpg ",
+            ],
+                    social: {
+          instagram: "https://www.instagram.com/ccu.unne/",
+          facebook: "https://www.facebook.com/CCU.UNNE/",
+          whatsapp: null,
+          whatsapp2: null,
+        },
+        menu: null,
+        website: "https://ccuunne.ar/capacitaciones",
+        inscriptions: null,
+        address: "9 de Julio 1272",
+        address2: null,
+          }
     ],
   },
   {
@@ -242,8 +357,13 @@ const topics = [
           instagram: "https://instagram.com/caraya.ecoparque",
           facebook: "https://www.facebook.com/profile.php?id=100069462267280 ",
           whatsapp: "https://wa.me/5493794575184",
+          whatsapp2: null,
         },
-        address: "RP5 km 8, Corrientes",
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "Carayá Ecoparque",
+        address2: null,
       },
       {
         name: "Reserva Natural Laguna Brava",
@@ -257,10 +377,15 @@ const topics = [
         ],
         social: {
           instagram: "https://instagram.com/reservanaturallaguna",
-          facebook: "https://facebook.com/0",
-          whatsapp: "https://wa.me/0",
+          facebook: "https://www.facebook.com/p/Reserva-Natural-Laguna-Brava-100077134893285/",
+          whatsapp: null,
+          whatsapp2: null,
         },
-        address: "RP5, Laguna Brava, Corrientes",
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "Reserva Natural Laguna Brava",
+        address2: null,
       },
       {
         name: "Reserva Natural Municipal Santa Catalina",
@@ -275,9 +400,14 @@ const topics = [
         social: {
           instagram: "https://instagram.com/Reservamunicipalcorrientes",
           facebook: "https://facebook.com/0",
-          whatsapp: "https://wa.me/0",
+          whatsapp: "https://wa.me/5493794341768",
+          whatsapp2: null,
         },
-        address: "RP5, Laguna Brava, Corrientes", //Agregar direccion
+        menu: null,
+        website: null,
+        inscriptions: "https://ciudaddecorrientes.gov.ar/reservasantacatalina",
+        address: "Reserva Natural Municipal Santa Catalina",
+        address2: null,
       },
       {
         name: "Parque Provincial San Cayetano",
@@ -292,9 +422,36 @@ const topics = [
         social: {
           instagram: "https://instagram.com/parqueprovsancayetano",
           facebook: "https://facebook.com/parqueprovincialsancayetano",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Av. San Cayetano, Corrientes", //Agregar direccion
+        address2: null,
+      },
+      {
+        name: "Las Lagunas",
+        logo: "/placeholder.svg?height=60&width=60",
+        description:
+          "Las Lagunas Cabalgatas Guiadas en Paso de la Patria, Corrientes, te invitan a vivir un auténtico día de campo correntino. Podés recorrer sus senderos a caballo junto a gauchos expertos, disfrutar del matecocido con chipa cuerito y conocer animales de la granja como ponys, pavos y gansos. Entre cabalgatas y risas, también podés saborear un buen asado o picnic al aire libre, haciendo de la visita una experiencia familiar inolvidable.",
+        images: [
+          "https://scontent.fcnq4-1.fna.fbcdn.net/v/t39.30808-6/472904963_18384511228099018_7031435497199633350_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGzhtel99Y_ibLD49WjDtndi-3h4CQXAVqL7eHgJBcBWj4pkdsk3AE0q31qqkTI72DNcJucBK5z7Tn_mAiDw11L&_nc_ohc=WWMdbY8r_zEQ7kNvwEdahu4&_nc_oc=AdmZmndSAdCWqAypEPVGUYrKZRtsj5uLAng-m07sgn2qeofLl94zuXd0POq_rJqYRf8&_nc_zt=23&_nc_ht=scontent.fcnq4-1.fna&_nc_gid=J0K_gbEP8tJVC69aeMGYeA&oh=00_AfVCGESGJsMkRpmLaVCzD5yY2ktkmoxPocsZV6zx2ZSXYw&oe=68A53200",
+          "https://scontent.fcnq4-1.fna.fbcdn.net/v/t51.75761-15/467528910_18376923601099018_5905381777750929548_n.jpg?stp=dst-jpegr_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEUmkx1W6-LreQgtUOVt6BZbSX3zQZoBPBtJffNBmgE8CQ7AB4NkGdsfOEK08ElZpwIJj_TdjTwsmw8Q0FW96K-&_nc_ohc=0xetPExAwSIQ7kNvwE20_IH&_nc_oc=AdnoXM_WDJu4Gw_f4B8M3lnHcFghBxkMbHd9hmDo-gC49OeKcaQOAmzSEDiQeQkvbvc&_nc_zt=23&se=-1&_nc_ht=scontent.fcnq4-1.fna&_nc_gid=DSMc8R5VODYyjF5csfhonw&oh=00_AfW0sIKaZx5Qu7r0USP_Hkgzs4mA_bBuKK4fen5v3kHsfw&oe=68A52BAD",
+          "https://scontent.fcnq4-1.fna.fbcdn.net/v/t39.30808-6/472531342_18384522058099018_1273127418248778855_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFe4aMI7A5HpqvNNdhp4QgTD18ZcH0WhxMPXxlwfRaHE48PgFc6Hp98viT4jtU9Vq6SvAk7C55x7AVmzuJCxPnc&_nc_ohc=ohdXmZIrBu0Q7kNvwFiyDHx&_nc_oc=AdlTPJFbefeysmlaUGWctP0jnmGUnmpczJN_t67mySw1B7XhL1ZMYal5ERG_4stmHZM&_nc_zt=23&_nc_ht=scontent.fcnq4-1.fna&_nc_gid=1YXkl0f3zK8SB-D9sdE3YA&oh=00_AfVGUzr0U60y0rAm1VIhTH13LcsyJIhkTqvK8ii75zYAmg&oe=68A54EE3",
+        ],
+        social: {
+          instagram: "https://www.instagram.com/laslagunascabalgatasguiadas/",
+          facebook: "https://www.facebook.com/LasLagunasCabalgatasGuiadas/",
+          whatsapp: null,
+          whatsapp2: null,
+        },
+        menu: null,
+        website: null,
+        inscriptions: null,
+        address: "'Las Lagunas' Cabalgatas guiadas",
+        address2: null,
       }
     ],
   },
@@ -316,9 +473,14 @@ const topics = [
         social: {
           instagram: "https://instagram.com/pasodelapatriaturismo",
           facebook: "https://facebook.com/galeria.arte.moderno",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Paso de la Patria, Corrientes",
+        address2: null,
       },
       {
         name: "Manuel Derqui",
@@ -326,16 +488,21 @@ const topics = [
         description:
           "Pequeña localidad de perfil rural y costero, ubicada a orillas del río Paraná. Se destaca por sus actividades pesqueras, con eventos como la Fiesta del Pescador, y por espacios como su balneario público y el camping Río Bonito, ideales para la pesca recreativa, actividades náuticas, turismo de naturaleza y descanso. Se convierte así en un destino especial para quienes buscan un lugar tranquilo donde conectar con la naturaleza y el río.",
         images: [
-          "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/484805377_632571596304995_270295342783012915_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHO6Xe1OlbhmTnDFaPCZcmxZKSvvF0KY81kpK-8XQpjzWIA1utLd0KILOkvoCvUcnRkvM5rlPT8IB8Tg2tXrjPN&_nc_ohc=UJpYCADmCkwQ7kNvwEE5oBt&_nc_oc=AdlmpJmSuxQYerZ2dkDANqrNiByaJTDpP6HgwiVSkbAbmx2ArSfjsNrgVrqgbjeqcuU&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=SEczWqzWZtNZxu9fi1EYJQ&oh=00_AfWGbLWqI5PHIgXkWw8_Xn366bj9VOkoO5Z31UOI_XWkBg&oe=689DC6FF",
+          "https://scontent.fres6-1.fna.fbcdn.net/v/t39.30808-6/484805377_632571596304995_270295342783012915_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=C_LIU9HeyYQQ7kNvwEk0ZA6&_nc_oc=AdkrVSNsf-CA67hObw-XrRlmx4WwmzRSJfSLXjmcufq8NLRGdFolz-DZXKxkFGkFhqw&_nc_zt=23&_nc_ht=scontent.fres6-1.fna&_nc_gid=zz5vLKliwmGalZHAEmu1hQ&oh=00_AfVtw1ytQlhNmHpBBJ5vKXaHYrQBFI9NTe2qdySSfCcU8w&oe=68A45E7F",
           "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/485726784_1711933652757359_4036222132943807266_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFR6oKOi2d9X96bOuk25B0mtwGeRG0FW2C3AZ5EbQVbYF6QT2ENOI7ri3saEBzhS8S7UaRAv8ZnzcfPtC1X4fm2&_nc_ohc=mgk9whxR4ykQ7kNvwFJ7tKO&_nc_oc=Adke5MRD42xb9uVJgmwp9t-1POiKYCbdreUVPahTL755UTm90OF-szyS4FYc9_u7ofI&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=eVL5x84zLhxWRqmWHvRcsw&oh=00_AfUy3UatXq8QKw5snr2wpLEESrw9_zB7qpQL8JUI1-7EKw&oe=68A1B433",
           "https://scontent.fpra1-1.fna.fbcdn.net/v/t51.82787-15/517781780_18103011529562297_6264007202242013892_n.webp?stp=dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHKrnrqb6QIkB1VMNW_Kr9aZ5q5YasTIzZnmrlhqxMjNki1J-qKsDUaqdXMsG2W8HF4Xj02kikPhuZ7Oc5-t9Aa&_nc_ohc=lUfG5JFVbX0Q7kNvwGFtaJP&_nc_oc=AdmsgXlwBOgBjK7PnkNPXlLkMbB_UJVv7TvZvXqs7yvu5PaHitYOz-WFSyD8Yo7KDIM&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=HggBCu81OocKkGbCcLALRA&oh=00_AfWpwpHIMo4eD01HpvqAsiZxpHmtQ3rs4ilCo5khaVgWfg&oe=68A19EC0",
         ],
         social: {
           instagram: "https://instagram.com/manuelderqui",
           facebook: "https://www.facebook.com/profile.php?id=100086564806795 ",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Manuel Derqui, Corrientes",
+        address2: null,
       },
       {
         name: "Empedrado",
@@ -345,14 +512,19 @@ const topics = [
         images: [
           "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/481233323_1057858863037069_900238492797765904_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGIqCVc-bxlOTPHzAKuDcOT4fqjq7dIkPbh-qOrt0iQ9jFzI_pUlmH2MAv8CVWrYqJ9B0zF7TYVKYg2i_N1Bxvg&_nc_ohc=hsvPtMF5YVkQ7kNvwG_3z4H&_nc_oc=AdkIdNVfkSZHhqc89Abr5Mf_4M-nou1VX3Y-qfLaI9l7q3HAz3Cr3Q2l57WzEJitxqE&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=Cma_7Wm4MNRiyl4y5tMJfA&oh=00_AfWRMIFHxE_uo6Ps5Qw9mAHo1NQtoKGGSUsUFKS7K9ZvUg&oe=68A1A714",
           "https://www.nordesteya.com/notix/multimedia/fotonotas/2024-02-14/2024-02-14-C5-231367.jpg",
-          "https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/459898361_18074235709562297_3499623502303508739_n.jpg?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGKVwc2R7dVeiUeSLWQ6179QXIfULNxjHFBch9Qs3GMcVtAKOVJG6ifd6v-ocuSWKAOVTyMd0oXhtQu-DwWJxVm&_nc_ohc=U7aPNTHtQw0Q7kNvwG3Yk80&_nc_oc=Adm_zap1Htr-XFarUrVSqI3j1wnNvs8gUcwP0Twx3CQ8vucnzQ2zUv76DGWeeNBTap0&_nc_zt=23&_nc_ht=scontent.fpra1-1.fna&_nc_gid=6ki3eICWKbl7kd_T2OiXcA&oh=00_AfXVD_u3NCFkhe7Nh1VKWrrgT08mCe6DSpLkhP16OnJubg&oe=689DA4EA",
+          "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nplzZlU4xV59KUpY7tHy76dNjYfbYFcyKaAL70ZAE7I8jgGClz1lzpSst6HfV1uZWmscXth2aBhzY9BQMjZuSowzsL8oADNP5V9gZUU11JnqYnHfaJgKHwRVaaUJd2eCg1HP3zHAQ=w540-h312-n-k-no",
         ],
         social: {
           instagram: "https://instagram.com/turismoempedrado",
           facebook: "https://www.facebook.com/municipalidadempedrado",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Empedrado, Corrientes",
+        address2: null,
       },
       {
         name: "Bella Vista",
@@ -367,8 +539,8 @@ const topics = [
         social: {
           instagram: "https://instagram.com/turismobellavistactes",
           facebook: "https://www.facebook.com/bellavistamuni",
-          whatsapp: "https://wa.me/0",
         },
+        website: "https://bellavista.gob.ar/turismo/",
         address: "Bella Vista, Corrientes",
       },
       {
@@ -384,9 +556,14 @@ const topics = [
         social: {
           instagram: "https://instagram.com/turismogoya",
           facebook: "https://www.facebook.com/goyaciudadok",
-          whatsapp: "https://wa.me/0",
+          whatsapp: null,
+          whatsapp2: null,
         },
+        menu: null,
+        website: null,
+        inscriptions: null,
         address: "Goya, Corrientes",
+        address2: null,
       }
     ],
   },
@@ -395,18 +572,18 @@ const topics = [
 const externalLinks = [
   {
     title: "Turismo Corrientes Oficial",
-    logo: "https://turismo.corrientes.gob.ar/assets/subdominios/38/small/NUEVA-MARCA-TURISMO-2-100px-2.png?1550146118",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCZ1VVbBWzzqpwrGuZLr0Ocnh6OC8hnYMW7ZpkFa96b8n3At-EV83tjTdGgcz3EOQp-OM&usqp=CAU",
     url: "https://turismo.corrientes.gob.ar",
   },
   {
-    title: "Guía de Restaurantes",
-    logo: "/placeholder.svg?height=40&width=40",
-    url: "https://guiarestaurantes.com.ar",
+    title: "Descubrí Corrientes página oficial",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT-SSeSNi8MFohK4b0rL7dSlHFgXsKkhSNUw&s",
+    url: "https://visitcorrientes.tur.ar",
   },
   {
     title: "Eventos y Festivales",
-    logo: "/placeholder.svg?height=40&width=40",
-    url: "https://eventoscorrientes.com",
+    logo: "https://media.istockphoto.com/id/1212381977/es/vector/icono-de-calendario-de-dise%C3%B1o-plano-simple.jpg?s=612x612&w=0&k=20&c=rH2qnbNgiZIKp2fghqjhLUr7r97KTgCheIoVuFUmKEY=",
+    url: "https://visitcorrientes.tur.ar/eventos/",
   },
 ]
 
@@ -417,17 +594,17 @@ export default function CorrentesTourism() {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   // Auto-scroll para las imágenes
-  useEffect(() => {
-    if (selectedTopic) {
-      const topic = topics.find((t) => t.id === selectedTopic)
-      if (topic && topic.places[selectedPlace]) {
-        const interval = setInterval(() => {
-          setCurrentImageIndex((prev) => (prev + 1) % topic.places[selectedPlace].images.length)
-        }, 7000)
-        return () => clearInterval(interval)
-      }
-    }
-  }, [selectedTopic, selectedPlace])
+  //useEffect(() => {
+  //  if (selectedTopic) {
+  //    const topic = topics.find((t) => t.id === selectedTopic)
+  //    if (topic && topic.places[selectedPlace]) {
+  //      const interval = setInterval(() => {
+  //        setCurrentImageIndex((prev) => (prev + 1) % topic.places[selectedPlace].images.length)
+  //      }, 7000)
+  //      return () => clearInterval(interval)
+  //    }
+  //  }
+  //}, [selectedTopic, selectedPlace])
 
   // Mostrar botón de scroll top
   useEffect(() => {
@@ -496,7 +673,7 @@ export default function CorrentesTourism() {
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Qué hacer en Corrientes</h1>
           <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-            Descubre los mejores lugares y experiencias que nuestra hermosa ciudad tiene para ofrecerte
+            Descubre algunos de los puntos más icónicos y algunas joyitas ocultas de la provincia de Corrientes
           </p>
         </motion.div>
       </div>
@@ -578,11 +755,11 @@ export default function CorrentesTourism() {
                   <div className="space-y-6">
                     {/* Place Header */}
                     <div className="flex items-center gap-4">
-                      <img
+                      {/*<img
                         src={currentPlace.logo || "/placeholder.svg"}
                         alt={`${currentPlace.name} logo`}
                         className="w-16 h-16 rounded-full object-cover"
-                      />
+                      />*/}
                       <div>
                         <h3 className="text-xl font-bold text-gray-800">{currentPlace.name}</h3>
                         <p className="text-gray-600">{currentPlace.description}</p>
@@ -630,8 +807,8 @@ export default function CorrentesTourism() {
                     {/* Social Links and Location */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <Card className="p-4">
-                        <h4 className="font-semibold mb-3 text-gray-800">Redes Sociales</h4>
-                        <div className="flex gap-4">
+                        <h4 className="font-semibold mb-3 text-gray-800">Enlaces importantes</h4>
+                        <div className="flex gap-4 flex-wrap">
                           <a
                             href={currentPlace.social.instagram}
                             target="_blank"
@@ -659,18 +836,62 @@ export default function CorrentesTourism() {
                             <MessageCircle className="h-5 w-5" />
                             <span className="text-sm">WhatsApp</span>
                           </a>
+                          {currentPlace.menu && (
+                            <a
+                              href={currentPlace.menu}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-orange-600 hover:text-orange-700 transition-colors"
+                            >
+                              <Utensils className="h-5 w-5" />
+                              <span className="text-sm">Menú</span>
+                            </a>
+                          )}
+                          {currentPlace.website && (
+                            <a
+                              href={currentPlace.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-purple-600 hover:text-purple-700 transition-colors"
+                            >
+                              <Globe className="h-5 w-5" />
+                              <span className="text-sm">Página Oficial</span>
+                            </a>
+                          )}
+                          {currentPlace.inscriptions && (
+                            <a
+                              href={currentPlace.inscriptions}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors"
+                            >
+                              <CalendarCheck className="h-5 w-5" />
+                              <span className="text-sm">Inscripciones</span>
+                            </a>
+                          )}
                         </div>
                       </Card>
 
                       <Card className="p-4">
                         <h4 className="font-semibold mb-3 text-gray-800">Ubicación</h4>
-                        <button
-                          onClick={() => openMaps(currentPlace.address)}
-                          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
-                        >
-                          <MapPin className="h-5 w-5" />
-                          <span className="text-sm">{currentPlace.address}</span>
-                        </button>
+                        <div className="space-y-3">
+                          <button
+                            onClick={() => openMaps(currentPlace.address)}
+                            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+                          >
+                            <MapPin className="h-5 w-5" />
+                            <span className="text-sm">{currentPlace.address}</span>
+                          </button>
+                          {currentPlace.address2 && (
+                            <button
+                              onClick={() => openMaps(currentPlace.address2)}
+                              className="flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors"
+                            >
+                              <MapPin className="h-5 w-5" />
+                              <span className="text-sm">{currentPlace.address2}</span>
+                            </button>
+                          )}
+                        </div>
                       </Card>
                     </div>
                   </div>
