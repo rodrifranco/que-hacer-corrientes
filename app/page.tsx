@@ -230,7 +230,7 @@ const topics = [
             "https://culturacorrientes.com/wp-content/uploads/2024/10/DSC_0046-Editar-1.jpg",
           ],
                   social: {
-          instagram: "https://instagram.com/museocasamartinez",
+          instagram: "https://www.instagram.com/museobonpland/",
           facebook: "https://www.facebook.com/profile.php?id=100093797866794 ",
           whatsapp: null,
           whatsapp2: null,
